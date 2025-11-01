@@ -40,7 +40,7 @@ const prompt = ai.definePrompt({
   output: {schema: GenerateDietPlanOutputSchema},
   prompt: `You are a nutritionist. Create a personalized diet plan based on the user's needs and preferences.
 
-Format the diet plan in a readable, user-friendly way using Markdown. Use headers for meal times (e.g., Breakfast, Lunch, Dinner, Snacks), and use bullet points for food items.
+Format the diet plan in a readable, user-friendly way using Markdown. Use headers for meal times (e.g., # Breakfast, # Lunch, # Dinner, # Snacks), and use bullet points for food items. Do not use any bold formatting.
 
 Needs and preferences: {{{needs}}}
 

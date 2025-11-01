@@ -36,6 +36,16 @@ function SubmitButton() {
   );
 }
 
+function markdownToHtml(markdown: string) {
+  // A simple markdown to HTML converter that handles headers and lists.
+  return markdown
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^\* (.*$)/gim, '<ul><li>$1</li></ul>')
+    .replace(/<\/ul>\n<ul>/gim, '')
+    .replace(/\n/g, '<br />');
+}
+
 export default function DietPlanPage() {
   const form = useForm<{ needs: string }>();
   const [state, formAction] = useActionState(generatePlan, {
@@ -122,7 +132,7 @@ export default function DietPlanPage() {
             {state.dietPlan && (
               <div 
                 className="prose prose-sm prose-headings:font-headline prose-headings:tracking-normal max-w-none rounded-lg border bg-secondary/30 p-4 text-foreground/80"
-                dangerouslySetInnerHTML={{ __html: state.dietPlan.replace(/\n/g, '<br />') }}
+                dangerouslySetInnerHTML={{ __html: markdownToHtml(state.dietPlan) }}
               />
             )}
           </CardContent>
