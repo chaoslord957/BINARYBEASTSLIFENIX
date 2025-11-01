@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useActionState } from 'react';
+import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { generatePlan } from './actions';
@@ -18,13 +18,13 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Bot, Loader2, User } from 'lucide-react';
+import { Bot, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useEffect } from 'react';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -120,9 +120,10 @@ export default function DietPlanPage() {
               </div>
             )}
             {state.dietPlan && (
-              <div className="prose prose-sm max-w-none rounded-lg border bg-secondary/30 p-4 text-foreground/80 whitespace-pre-wrap">
-                {state.dietPlan}
-              </div>
+              <div 
+                className="prose prose-sm prose-headings:font-headline prose-headings:tracking-normal max-w-none rounded-lg border bg-secondary/30 p-4 text-foreground/80"
+                dangerouslySetInnerHTML={{ __html: state.dietPlan.replace(/\n/g, '<br />') }}
+              />
             )}
           </CardContent>
         </Card>

@@ -25,7 +25,7 @@ const GenerateDietPlanOutputSchema = z.object({
   dietPlan: z
     .string()
     .describe(
-      'A personalized diet plan tailored to the users specific needs and preferences.'
+      'A personalized diet plan tailored to the users specific needs and preferences, formatted in Markdown.'
     ),
 });
 export type GenerateDietPlanOutput = z.infer<typeof GenerateDietPlanOutputSchema>;
@@ -39,6 +39,8 @@ const prompt = ai.definePrompt({
   input: {schema: GenerateDietPlanInputSchema},
   output: {schema: GenerateDietPlanOutputSchema},
   prompt: `You are a nutritionist. Create a personalized diet plan based on the user's needs and preferences.
+
+Format the diet plan in a readable, user-friendly way using Markdown. Use headers for meal times (e.g., Breakfast, Lunch, Dinner, Snacks), and use bullet points for food items.
 
 Needs and preferences: {{{needs}}}
 
