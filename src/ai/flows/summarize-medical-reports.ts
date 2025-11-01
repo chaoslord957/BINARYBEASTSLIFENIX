@@ -15,6 +15,10 @@ const SummarizeMedicalReportInputSchema = z.object({
   reportText: z
     .string()
     .describe('The text content extracted from the medical report.'),
+  photo: z
+    .string()
+    .optional()
+    .describe("Optional: A photo of the report or relevant image, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."),
 });
 export type SummarizeMedicalReportInput = z.infer<typeof SummarizeMedicalReportInputSchema>;
 
@@ -39,10 +43,15 @@ const summarizeMedicalReportPrompt = ai.definePrompt({
   name: 'summarizeMedicalReportPrompt',
   input: {schema: SummarizeMedicalReportInputSchema},
   output: {schema: SummarizeMedicalReportOutputSchema},
-  prompt: `You are a medical expert who can summarize medical reports, highlight abnormal values, and suggest a diet plan based on those values. Analyze the following medical report text and provide a summary, highlight any abnormal values, and suggest a diet plan.
+  prompt: `You are a medical expert who can summarize medical reports, highlight abnormal values, and suggest a diet plan based on those values. Analyze the following medical report text and image (if provided) and provide a summary, highlight any abnormal values, and suggest a diet plan.
 
 Medical Report Text:
-{{{reportText}}}`,
+{{{reportText}}}
+
+{{#if photo}}
+Medical Report Image:
+{{media url=photo}}
+{{/if}}`,
 });
 
 const summarizeMedicalReportFlow = ai.defineFlow(

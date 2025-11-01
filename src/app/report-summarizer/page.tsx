@@ -33,7 +33,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -46,7 +45,7 @@ function SubmitButton() {
 }
 
 export default function ReportSummarizerPage() {
-  const form = useForm<{ reportText: string, reportFile: FileList }>();
+  const form = useForm<{ reportText: string, reportFile: FileList, photo: FileList }>();
   const [state, formAction] = useFormState(summarizeReport, {
     summary: '',
     abnormalValues: '',
@@ -79,7 +78,7 @@ export default function ReportSummarizerPage() {
               <CardHeader>
                 <CardTitle>Your Medical Report</CardTitle>
                 <CardDescription>
-                  Paste the text from your medical report or upload a document.
+                  Paste the text, upload a document, or upload an image of your report.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -94,7 +93,7 @@ export default function ReportSummarizerPage() {
                           {...field}
                           name="reportText"
                           placeholder="Start pasting your report text here..."
-                          className="min-h-[200px] resize-y"
+                          className="min-h-[150px] resize-y"
                         />
                       </FormControl>
                       <FormMessage />
@@ -122,6 +121,27 @@ export default function ReportSummarizerPage() {
                       </FormControl>
                       <FormDescription>
                         Accepted formats: .txt. Max size: 5MB.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                 <FormField
+                  control={form.control}
+                  name="photo"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Upload Image</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="file" 
+                          accept="image/*" 
+                          name="photo"
+                          onChange={(e) => field.onChange(e.target.files)}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        Upload an image of the report if available. Max size: 5MB.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
