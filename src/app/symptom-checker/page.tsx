@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { checkSymptoms } from './actions';
 import { PageHeader } from '@/components/PageHeader';
@@ -46,7 +46,7 @@ function SubmitButton() {
 
 export default function SymptomCheckerPage() {
   const form = useForm<{ symptoms: string; medicalHistory: string; photo: FileList }>();
-  const [state, formAction] = useFormState(checkSymptoms, {
+  const [state, formAction] = useActionState(checkSymptoms, {
     possibleConditions: '',
     recommendedSpecialties: '',
     disclaimer: '',

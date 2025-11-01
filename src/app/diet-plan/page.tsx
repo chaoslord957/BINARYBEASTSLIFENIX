@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { generatePlan } from './actions';
 import { PageHeader } from '@/components/PageHeader';
@@ -38,7 +38,7 @@ function SubmitButton() {
 
 export default function DietPlanPage() {
   const form = useForm<{ needs: string }>();
-  const [state, formAction] = useFormState(generatePlan, {
+  const [state, formAction] = useActionState(generatePlan, {
     dietPlan: '',
     error: '',
   });

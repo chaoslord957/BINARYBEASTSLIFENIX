@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { summarizeReport } from './actions';
 import { PageHeader } from '@/components/PageHeader';
@@ -46,7 +47,7 @@ function SubmitButton() {
 
 export default function ReportSummarizerPage() {
   const form = useForm<{ reportText: string, reportFile: FileList, photo: FileList }>();
-  const [state, formAction] = useFormState(summarizeReport, {
+  const [state, formAction] = useActionState(summarizeReport, {
     summary: '',
     abnormalValues: '',
     dietPlan: '',
