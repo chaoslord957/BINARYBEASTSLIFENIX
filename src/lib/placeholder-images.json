@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "doctor-1",
+      "description": "Avatar for Dr. Priya Sharma",
+      "imageUrl": "https://images.unsplash.com/photo-1659353888906-adb3e0041693?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBmZW1hbGUlMjBkb2N0b3J8ZW58MHx8fHwxNzYyMDE2MzM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian female doctor"
+    },
+    {
+      "id": "doctor-2",
+      "description": "Avatar for Dr. Rahul Verma",
+      "imageUrl": "https://images.unsplash.com/photo-1659353887977-c310d90c751a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBtYWxlJTIwZG9jdG9yfGVufDB8fHx8MTc2MjAxNjMzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian male doctor"
+    },
+    {
+      "id": "doctor-3",
+      "description": "Avatar for Dr. Anjali Singh",
+      "imageUrl": "https://images.unsplash.com/photo-1523512090443-2d7df8b40358?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aW5kaWFuJTIwZmVtYWxlJTIwZG9jdG9yJTIwc21pbGluZ3xlbnwwfHx8fDE3NjIwMTYzMzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian female doctor smiling"
+    },
+    {
+      "id": "doctor-4",
+      "description": "Avatar for Dr. Vikram Rathore",
+      "imageUrl": "https://images.unsplash.com/photo-1612636320854-776180f479d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBtYWxlJTIwZG9jdG9yJTIwZ2xhc3Nlc3xlbnwwfHx8fDE3NjIwMTYzMzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian male doctor glasses"
+    },
+    {
+      "id": "article-1",
+      "description": "Image for yoga article",
+      "imageUrl": "https://images.unsplash.com/photo-1616376392785-8e7e283571e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx5b2dhJTIwbWVkaXRhdGlvbnxlbnwwfHx8fDE3NjE5ODU3MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yoga meditation"
+    },
+    {
+      "id": "article-2",
+      "description": "Image for healthy eating article",
+      "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoZWFsdGh5JTIwZm9vZHxlbnwwfHx8fDE3NjIwMTE2ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "healthy food"
+    },
+    {
+      "id": "article-3",
+      "description": "Image for mental health article",
+      "imageUrl": "https://images.unsplash.com/photo-1570506097811-83004c7e4691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjYWxtJTIwc2VyZW5lfGVufDB8fHx8MTc2MTkxMDc2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "calm serene"
+    },
+    {
+      "id": "ambulance-map",
+      "description": "Placeholder map for ambulance booking",
+      "imageUrl": "https://images.unsplash.com/photo-1717343823307-973d0903d222?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2MTkxMTUzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city map"
+    }
+  ]
 }
