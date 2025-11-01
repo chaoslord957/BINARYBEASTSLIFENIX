@@ -3,3 +3,4 @@ config();
 
 import '@/ai/flows/generate-diet-plan.ts';
 import '@/ai/flows/summarize-medical-reports.ts';
+import '@/ai/ai-symptom-checker.ts';

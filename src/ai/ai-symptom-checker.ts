@@ -19,10 +19,10 @@ const AISymptomCheckerInputSchema = z.object({
     .string()
     .optional()
     .describe('Optional: Information about the user medical history.'),
-  previousFiles: z
+  photo: z
     .string()
     .optional()
-    .describe('Optional: Relevant information extracted from previous files uploaded by the user.'),
+    .describe("Optional: A photo of the symptom, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."),
 });
 export type AISymptomCheckerInput = z.infer<typeof AISymptomCheckerInputSchema>;
 
@@ -51,9 +51,11 @@ const prompt = ai.definePrompt({
 
   Symptoms: {{{symptoms}}}
   Medical History: {{{medicalHistory}}}
-  Previous Files: {{{previousFiles}}}
+  {{#if photo}}
+  Photo of symptom: {{media url=photo}}
+  {{/if}}
 
-  Based on the provided symptoms and medical history (if any), please provide the following:
+  Based on the provided symptoms, medical history, and photo (if any), please provide the following:
   - Possible Conditions: A list of potential medical conditions that could be causing the symptoms.
   - Recommended Specialties: A list of doctor specialties that the user should consult for further evaluation.
   - Disclaimer: A disclaimer to always consult a real doctor for proper diagnosis and treatment, and that this AI is not a substitute for professional medical advice.

@@ -16,6 +16,7 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -23,7 +24,7 @@ import {
 } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { AlertTriangle, Bot, FileText, Loader2, Salad, User } from 'lucide-react';
+import { AlertTriangle, Bot, FileText, Loader2, Salad } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
   Accordion,
@@ -31,6 +32,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -43,7 +46,7 @@ function SubmitButton() {
 }
 
 export default function ReportSummarizerPage() {
-  const form = useForm<{ reportText: string }>();
+  const form = useForm<{ reportText: string, reportFile: FileList }>();
   const [state, formAction] = useFormState(summarizeReport, {
     summary: '',
     abnormalValues: '',
@@ -66,7 +69,7 @@ export default function ReportSummarizerPage() {
     <div className="flex flex-1 flex-col p-4 md:p-6">
       <PageHeader
         title="Medical Report Summarizer"
-        description="Paste your medical report text to get a summary and insights."
+        description="Paste your medical report text or upload a file to get a summary and insights."
       />
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -76,24 +79,50 @@ export default function ReportSummarizerPage() {
               <CardHeader>
                 <CardTitle>Your Medical Report</CardTitle>
                 <CardDescription>
-                  Paste the text from your medical report into the field below.
+                  Paste the text from your medical report or upload a document.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-4">
                 <FormField
                   control={form.control}
                   name="reportText"
                   render={({ field }) => (
                     <FormItem>
+                      <FormLabel>Paste Report Text</FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
                           name="reportText"
                           placeholder="Start pasting your report text here..."
-                          className="min-h-[300px] resize-y"
-                          required
+                          className="min-h-[200px] resize-y"
                         />
                       </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <div className="flex items-center justify-center">
+                  <div className="flex-1 border-t border-muted"></div>
+                  <span className="mx-4 text-xs uppercase text-muted-foreground">Or</span>
+                  <div className="flex-1 border-t border-muted"></div>
+                </div>
+                <FormField
+                  control={form.control}
+                  name="reportFile"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Upload Report File</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="file" 
+                          accept=".txt" 
+                          name="reportFile"
+                          onChange={(e) => field.onChange(e.target.files)}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        Accepted formats: .txt. Max size: 5MB.
+                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
