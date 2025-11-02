@@ -18,6 +18,14 @@ export function DashboardCarousel() {
     'carousel-5',
   ];
 
+  const quotes = [
+    'The secret of getting ahead is getting started.',
+    'Your health is an investment, not an expense.',
+    'A little progress each day adds up to big results.',
+    'Believe you can and you\'re halfway there.',
+    'The best way to predict the future is to create it.',
+  ];
+
   const getImage = (id: string) =>
     PlaceHolderImages.find((img) => img.id === id);
 
@@ -32,7 +40,7 @@ export function DashboardCarousel() {
       ]}
     >
       <CarouselContent>
-        {carouselImages.map((id) => {
+        {carouselImages.map((id, index) => {
           const image = getImage(id);
           if (!image) return null;
           return (
@@ -45,7 +53,11 @@ export function DashboardCarousel() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 p-4">
+                  <blockquote className="text-center text-xl font-semibold text-white md:text-2xl">
+                    "{quotes[index]}"
+                  </blockquote>
+                </div>
               </div>
             </CarouselItem>
           );
@@ -54,5 +66,3 @@ export function DashboardCarousel() {
     </Carousel>
   );
 }
-
-    
