@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "MedicalDocument": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "MedicalDocument",
+      "type": "object",
+      "description": "Represents a medical document stored in the vault.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the medical document."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to the User who uploaded the document. (Relationship: User 1:N MedicalDocument)"
+        },
+        "filename": {
+          "type": "string",
+          "description": "Original filename of the uploaded document."
+        },
+        "uploadDate": {
+          "type": "string",
+          "description": "Date and time when the document was uploaded.",
+          "format": "date-time"
+        },
+        "fileType": {
+          "type": "string",
+          "description": "MIME type of the uploaded document (e.g., application/pdf, image/jpeg)."
+        },
+        "fileSize": {
+          "type": "number",
+          "description": "Size of the uploaded document in bytes."
+        },
+        "storageLocation": {
+          "type": "string",
+          "description": "Location of the document stored (e.g., cloud storage URL or local path).",
+          "format": "uri"
+        },
+        "aiInsights": {
+          "type": "string",
+          "description": "AI-extracted insights from the document content."
+        },
+        "ocrContent": {
+          "type": "string",
+          "description": "OCR extracted content from the document"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "filename",
+        "uploadDate",
+        "fileType",
+        "fileSize",
+        "storageLocation"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}/medicalDocuments/{documentId}",
+        "definition": {
+          "entityName": "MedicalDocument",
+          "schema": {
+            "$ref": "#/backend/entities/MedicalDocument"
+          },
+          "description": "Stores medical documents specific to a user. The userId is used for path-based ownership, ensuring only the user can access their documents. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The ID of the user who owns the medical document."
+            },
+            {
+              "name": "documentId",
+              "description": "The unique ID of the medical document."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure prioritizes user-owned data with path-based ownership to ensure Authorization Independence and efficient QAPs (Rules Are Not Filters). The `medicalDocuments` subcollection under each user ensures that documents are only accessible to their respective owners. This design eliminates the need for `get()` calls in security rules, simplifying them and enabling atomic operations (transactions/batches) for document creation and modification. All documents in `/users/{userId}/medicalDocuments/{documentId}` share the same security requirements. The structure directly implements the user’s instructions by creating a path for medical documents where files can be stored. This design is aligned with the core design principles and strategy mandates."
+  }
+}
