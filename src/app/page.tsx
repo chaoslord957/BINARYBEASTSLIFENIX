@@ -10,6 +10,7 @@ import {
   Sparkles,
   Sprout,
   Stethoscope,
+  Droplets,
 } from 'lucide-react';
 import {
   Card,
@@ -66,6 +67,12 @@ const features = [
     href: '/ayurvedic-remedies',
     icon: Sprout,
     description: 'Explore traditional remedies.',
+  },
+  {
+    title: 'Homeopathy',
+    href: '/homeopathy',
+    icon: Droplets,
+    description: 'Find homeopathic solutions.',
   },
   {
     title: 'Medical Vault',

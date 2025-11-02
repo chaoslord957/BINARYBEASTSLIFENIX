@@ -14,6 +14,7 @@ import {
   Sparkles,
   Sprout,
   Stethoscope,
+  Droplets,
 } from 'lucide-react';
 import { AppLogo } from '@/components/AppLogo';
 import {
@@ -84,6 +85,12 @@ const navItems: NavItem[] = [
     title: 'Ayurvedic Remedies',
     href: '/ayurvedic-remedies',
     icon: Sprout,
+    group: 'Services',
+  },
+  {
+    title: 'Homeopathy',
+    href: '/homeopathy',
+    icon: Droplets,
     group: 'Services',
   },
   {
