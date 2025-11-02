@@ -42,18 +42,18 @@ export const doctors: Doctor[] = [
 export const homeopathicDoctors: Doctor[] = [
     {
       id: 'homeo-1',
-      name: 'Dr. Alok Nath',
-      specialty: 'Homeopathic Consultant (B.H.M.S)',
-      avatar: 'homeopathic-doctor-1',
+      name: 'Dr. Samuel Hahnemann',
+      specialty: 'Homeopathic Consultant',
+      avatar: '',
       online: true,
       rating: 4.8,
       reviews: 112,
     },
     {
       id: 'homeo-2',
-      name: 'Dr. Sunita Gupta',
+      name: 'Dr. Melanie Grubman',
       specialty: 'Classical Homeopathy',
-      avatar: 'homeopathic-doctor-2',
+      avatar: '',
       online: false,
       rating: 4.9,
       reviews: 98,
