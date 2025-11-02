@@ -30,8 +30,6 @@ import {
 } from '@/components/ui/sidebar';
 import { cn } from '@/lib/utils';
 import type { NavItem } from '@/lib/types';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from './ui/button';
 
 const navItems: NavItem[] = [
   {
@@ -86,19 +84,19 @@ const navItems: NavItem[] = [
     title: 'Ayurvedic Remedies',
     href: '/ayurvedic-remedies',
     icon: Sprout,
-    group: 'Services',
+    group: 'Wellness & Knowledge',
   },
   {
     title: 'Homeopathy',
     href: '/homeopathy',
     icon: Droplets,
-    group: 'Services',
+    group: 'Wellness & Knowledge',
   },
   {
     title: 'Home Remedies',
     href: '/home-remedies',
     icon: Home,
-    group: 'Services',
+    group: 'Wellness & Knowledge',
   },
   {
     title: 'Medical Vault',
