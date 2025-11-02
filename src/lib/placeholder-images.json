@@ -47,6 +47,30 @@
       "description": "Placeholder map for ambulance booking",
       "imageUrl": "https://images.unsplash.com/photo-1717343823307-973d0903d222?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2MTkxMTUzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "city map"
+    },
+    {
+      "id": "medicine-1",
+      "description": "Image for Paracetamol",
+      "imageUrl": "https://images.unsplash.com/photo-1609720597021-1498d6216a55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGl0ZSUyMHBpbGxzfGVufDB8fHx8MTc2MjA1NTI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "white pills"
+    },
+    {
+      "id": "medicine-2",
+      "description": "Image for Amoxicillin",
+      "imageUrl": "https://images.unsplash.com/photo-1558379466-bed9e35ee7cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXBzdWxlJTIwcGlsbHN8ZW58MHx8fHwxNzYyMDU1MjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "capsule pills"
+    },
+    {
+      "id": "medicine-3",
+      "description": "Image for Cetirizine",
+      "imageUrl": "https://images.unsplash.com/photo-1662673138864-9dd1ccb02cb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhbGxlcmd5JTIwcGlsbHN8ZW58MHx8fHwxNzYyMDU1MjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "allergy pills"
+    },
+    {
+      "id": "medicine-4",
+      "description": "Image for Aspirin",
+      "imageUrl": "https://images.unsplash.com/photo-1677167025641-a713804a9e54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoZWFydCUyMHBpbGxzfGVufDB8fHx8MTc2MjA1NTI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "heart pills"
     }
   ]
 }

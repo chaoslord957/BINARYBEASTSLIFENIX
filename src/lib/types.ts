@@ -21,6 +21,7 @@ export type Doctor = {
 export type Medicine = {
   id: string;
   name: string;
+  description: string;
   price: number;
   imageUrl: string;
   requiresPrescription: boolean;

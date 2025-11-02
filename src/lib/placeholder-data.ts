@@ -40,10 +40,10 @@ export const doctors: Doctor[] = [
 ];
 
 export const medicines: Medicine[] = [
-    { id: '1', name: 'Paracetamol 500mg', price: 20, imageUrl: 'https://picsum.photos/seed/med1/200/200', requiresPrescription: false, stock: 150 },
-    { id: '2', name: 'Amoxicillin 250mg', price: 150, imageUrl: 'https://picsum.photos/seed/med2/200/200', requiresPrescription: true, stock: 80 },
-    { id: '3', name: 'Cetirizine 10mg', price: 50, imageUrl: 'https://picsum.photos/seed/med3/200/200', requiresPrescription: false, stock: 200 },
-    { id: '4', name: 'Aspirin 75mg', price: 15, imageUrl: 'https://picsum.photos/seed/med4/200/200', requiresPrescription: false, stock: 120 },
+    { id: '1', name: 'Paracetamol 500mg', description: 'A common pain reliever and fever reducer.', price: 20, imageUrl: 'medicine-1', requiresPrescription: false, stock: 150 },
+    { id: '2', name: 'Amoxicillin 250mg', description: 'An antibiotic used to treat bacterial infections.', price: 150, imageUrl: 'medicine-2', requiresPrescription: true, stock: 80 },
+    { id: '3', name: 'Cetirizine 10mg', description: 'An antihistamine used for allergies.', price: 50, imageUrl: 'medicine-3', requiresPrescription: false, stock: 200 },
+    { id: '4', name: 'Aspirin 75mg', description: 'Used to reduce pain, fever, or inflammation.', price: 15, imageUrl: 'medicine-4', requiresPrescription: false, stock: 120 },
 ];
 
 export const medicalDocuments: MedicalDocument[] = [
