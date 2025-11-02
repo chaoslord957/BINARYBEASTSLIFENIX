@@ -57,6 +57,12 @@ const navItems: NavItem[] = [
     group: 'AI Tools',
   },
   {
+    title: 'Medical Vault',
+    href: '/medical-vault',
+    icon: Shield,
+    group: 'AI Tools',
+  },
+  {
     title: 'Health Monitor',
     href: '/health-monitor',
     icon: HeartPulse,
@@ -97,12 +103,6 @@ const navItems: NavItem[] = [
     href: '/home-remedies',
     icon: Home,
     group: 'Wellness & Knowledge',
-  },
-  {
-    title: 'Medical Vault',
-    href: '/medical-vault',
-    icon: Shield,
-    group: 'Personal',
   },
   {
     title: 'Articles',
