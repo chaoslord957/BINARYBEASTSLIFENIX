@@ -2,58 +2,27 @@
  * @fileoverview Firestore Security Rules for the Medical Vault application.
  *
  * Core Philosophy:
- * This ruleset enforces a strict user-ownership model for medical documents. Each user has exclusive access to their own documents stored under their respective user ID.
+ * This ruleset allows public read and write access to the medicalDocuments collection for demonstration purposes.
+ * In a production app, this would be replaced with a strict user-ownership model.
  *
  * Data Structure:
- * All medical documents are nested under the /users/{userId}/medicalDocuments/{documentId} path.
- *
- * Key Security Decisions:
- * - Users can only access their own medical documents.
- * - Listing of all medical documents across all users is disallowed.
- * - The 'userId' field within each document must match the 'userId' in the path for create operations.
- * - The 'userId' field cannot be changed after document creation.
- *
- * Denormalization for Authorization:
- * The 'userId' field is denormalized within the MedicalDocument entity to enable fast, simple ownership checks within the rules, avoiding costly `get()` calls. This makes rules more efficient and secure.
+ * All medical documents are stored in the /medicalDocuments/{documentId} path.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Controls access to individual medical documents stored under a user's ID.
-     * @path /users/{userId}/medicalDocuments/{documentId}
-     * @allow (create) - User 'user_abc' can create a new medical document under /users/user_abc/medicalDocuments/doc1 with matching userId.
-     * @allow (get, update, delete) - User 'user_abc' can get, update, or delete their own medical document /users/user_abc/medicalDocuments/doc1.
-     * @deny (create) - User 'user_xyz' cannot create a medical document under /users/user_abc/medicalDocuments/doc1.
-     * @deny (get, update, delete) - User 'user_xyz' cannot get, update, or delete a medical document under /users/user_abc/medicalDocuments/doc1.
-     * @principle Enforces strict document ownership based on the 'userId' field and path-based authorization.
+     * @description Controls access to medical documents.
+     * @path /medicalDocuments/{documentId}
+     * @allow (read, write) - Allows public read and write access for the demo.
+     * @principle Open access for demonstration.
      */
-    match /users/{userId}/medicalDocuments/{documentId} {
-      // Helper function to check if the current user is the owner of the document.
-      function isOwner(userId) {
-        return request.auth != null && request.auth.uid == userId;
-      }
-
-      // Helper function to check if the current user is the owner of the document and the document exists.
-      function isExistingOwner(userId) {
-        return isOwner(userId) && resource != null;
-      }
-
-      // Allow anyone to read a document
-      allow get: if isOwner(userId);
-
-      // Only allow the owner to list their own documents.
-      allow list: if isOwner(userId);
-
-      // Only allow the user whose ID matches the path to create a new document, and validate the userId field.
-      allow create: if isOwner(userId) && request.resource.data.userId == userId;
-
-      // Only allow the owner to update a document, and ensure the userId field remains unchanged.
-      allow update: if isExistingOwner(userId) && request.resource.data.userId == resource.data.userId;
-
-      // Only allow the owner to delete a document.
-      allow delete: if isExistingOwner(userId);
+    match /medicalDocuments/{documentId} {
+      // WARNING: This allows anyone to read, write, and delete documents.
+      // This is for demonstration purposes only.
+      // In a real application, you would implement proper user authentication and authorization.
+      allow read, write: if true;
     }
   }
 }

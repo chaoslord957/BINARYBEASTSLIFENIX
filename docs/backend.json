@@ -10,10 +10,6 @@
           "type": "string",
           "description": "Unique identifier for the medical document."
         },
-        "userId": {
-          "type": "string",
-          "description": "Reference to the User who uploaded the document. (Relationship: User 1:N MedicalDocument)"
-        },
         "filename": {
           "type": "string",
           "description": "Original filename of the uploaded document."
@@ -47,7 +43,6 @@
       },
       "required": [
         "id",
-        "userId",
         "filename",
         "uploadDate",
         "fileType",
@@ -57,26 +52,19 @@
     }
   },
   "auth": {
-    "providers": [
-      "password",
-      "anonymous"
-    ]
+    "providers": []
   },
   "firestore": {
     "structure": [
       {
-        "path": "/users/{userId}/medicalDocuments/{documentId}",
+        "path": "/medicalDocuments/{documentId}",
         "definition": {
           "entityName": "MedicalDocument",
           "schema": {
             "$ref": "#/backend/entities/MedicalDocument"
           },
-          "description": "Stores medical documents specific to a user. The userId is used for path-based ownership, ensuring only the user can access their documents. Includes denormalized 'userId' for authorization independence.",
+          "description": "Stores medical documents in a global collection.",
           "params": [
-            {
-              "name": "userId",
-              "description": "The ID of the user who owns the medical document."
-            },
             {
               "name": "documentId",
               "description": "The unique ID of the medical document."
@@ -85,6 +73,6 @@
         }
       }
     ],
-    "reasoning": "The Firestore structure prioritizes user-owned data with path-based ownership to ensure Authorization Independence and efficient QAPs (Rules Are Not Filters). The `medicalDocuments` subcollection under each user ensures that documents are only accessible to their respective owners. This design eliminates the need for `get()` calls in security rules, simplifying them and enabling atomic operations (transactions/batches) for document creation and modification. All documents in `/users/{userId}/medicalDocuments/{documentId}` share the same security requirements. The structure directly implements the user’s instructions by creating a path for medical documents where files can be stored. This design is aligned with the core design principles and strategy mandates."
+    "reasoning": "The Firestore structure uses a global collection for medical documents to simplify access for this demonstration application, removing the need for user authentication. This is not recommended for a production application handling sensitive data."
   }
 }

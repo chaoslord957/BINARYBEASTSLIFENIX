@@ -6,7 +6,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -19,23 +18,19 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import {
-  useUser,
   useFirestore,
   useCollection,
   useMemoFirebase,
 } from '@/firebase';
-import { initiateAnonymousSignIn } from '@/firebase/non-blocking-login';
 import { addDocumentNonBlocking } from '@/firebase/non-blocking-updates';
 import {
   FileText,
   Loader2,
-  LogIn,
   MoreVertical,
-  Shield,
   Upload,
 } from 'lucide-react';
 import { collection, doc } from 'firebase/firestore';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -54,14 +49,13 @@ interface MedicalDocument {
 }
 
 export default function MedicalVaultPage() {
-  const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const medicalDocumentsQuery = useMemoFirebase(() => {
-    if (!firestore || !user?.uid) return null;
-    return collection(firestore, `users/${user.uid}/medicalDocuments`);
-  }, [firestore, user?.uid]);
+    if (!firestore) return null;
+    return collection(firestore, `medicalDocuments`);
+  }, [firestore]);
 
   const {
     data: documents,
@@ -75,13 +69,12 @@ export default function MedicalVaultPage() {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (file && user) {
+    if (file) {
       // In a real app, you would upload to Firebase Storage here.
       // For this demo, we'll just add a record to Firestore.
       console.log('Uploading file:', file.name);
 
       const newDoc = {
-        userId: user.uid,
         filename: file.name,
         fileType: file.type,
         fileSize: file.size,
@@ -96,49 +89,10 @@ export default function MedicalVaultPage() {
   };
 
   const handleDelete = (docId: string) => {
-    if (!firestore || !user?.uid) return;
-    const docRef = doc(firestore, `users/${user.uid}/medicalDocuments`, docId);
+    if (!firestore) return;
+    const docRef = doc(firestore, `medicalDocuments`, docId);
     deleteDocumentNonBlocking(docRef);
   };
-
-  if (isUserLoading) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center p-4">
-        <Loader2 className="h-12 w-12 animate-spin text-primary" />
-        <p className="mt-4 text-muted-foreground">Loading Your Vault...</p>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return (
-      <div className="flex flex-1 flex-col p-4 md:p-6">
-        <PageHeader
-          title="Medical Vault"
-          description="Please sign in to access your secure document storage."
-        />
-        <Card className="text-center">
-          <CardHeader>
-            <CardTitle>Authentication Required</CardTitle>
-            <CardDescription>
-              Sign in to manage your medical documents securely.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Shield className="mx-auto h-24 w-24 text-primary/20" />
-          </CardContent>
-          <CardFooter className="justify-center">
-            <Button
-              onClick={() => initiateAnonymousSignIn(useAuth())}
-            >
-              <LogIn className="mr-2" />
-              Sign In Anonymously
-            </Button>
-          </CardFooter>
-        </Card>
-      </div>
-    );
-  }
 
   return (
     <div className="flex flex-1 flex-col p-4 md:p-6">
@@ -160,6 +114,9 @@ export default function MedicalVaultPage() {
       <Card>
         <CardHeader>
           <CardTitle>Your Documents</CardTitle>
+          <CardDescription>
+            All uploaded medical documents are stored here.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           {isLoadingDocuments && (
