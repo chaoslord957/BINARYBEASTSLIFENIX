@@ -24,6 +24,7 @@ import {
 } from '@/components/ui/card';
 import { PageHeader } from '@/components/PageHeader';
 import type { Metadata } from 'next';
+import { DashboardCarousel } from '@/components/DashboardCarousel';
 
 export const metadata: Metadata = {
   title: 'Dashboard | LifeNix',
@@ -129,6 +130,7 @@ export default function DashboardPage() {
         title="Welcome to LifeNix"
         description="Your personal health companion. What would you like to do today?"
       />
+      <DashboardCarousel />
       <div className="flex flex-col gap-8">
         {featureGroups.map((group) => (
           <section key={group.category}>
@@ -161,3 +163,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+    
