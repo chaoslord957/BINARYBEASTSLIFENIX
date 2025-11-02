@@ -70,16 +70,16 @@ export default function MedicalVaultPage() {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      // In a real app, you would upload to Firebase Storage here.
-      // For this demo, we'll just add a record to Firestore.
-      console.log('Uploading file:', file.name);
+      // In a real app, you would upload to Firebase Storage.
+      // For this demo, we create a temporary local URL to make the file viewable.
+      const objectURL = URL.createObjectURL(file);
 
       const newDoc = {
         filename: file.name,
         fileType: file.type,
         fileSize: file.size,
         uploadDate: new Date().toISOString(),
-        storageLocation: 'dummy/path/for/demo', // Replace with actual storage path
+        storageLocation: objectURL, // Store the temporary URL
       };
 
       if (medicalDocumentsQuery) {
@@ -92,6 +92,10 @@ export default function MedicalVaultPage() {
     if (!firestore) return;
     const docRef = doc(firestore, `medicalDocuments`, docId);
     deleteDocumentNonBlocking(docRef);
+  };
+
+  const handleOpen = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -164,6 +168,9 @@ export default function MedicalVaultPage() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
+                           <DropdownMenuItem onSelect={() => handleOpen(doc.storageLocation)}>
+                            Open
+                          </DropdownMenuItem>
                           <DropdownMenuItem onSelect={() => handleDelete(doc.id)}>
                             Delete
                           </DropdownMenuItem>
