@@ -1,4 +1,4 @@
-import type { Doctor, Article, MedicalDocument, Medicine, AyurvedicRemedy } from './types';
+import type { Doctor, Article, MedicalDocument, Medicine, AyurvedicRemedy, HomeRemedy } from './types';
 
 export const doctors: Doctor[] = [
   {
@@ -105,6 +105,48 @@ export const ayurvedicRemedies: AyurvedicRemedy[] = [
     }
 ]
 
+export const homeRemedies: HomeRemedy[] = [
+  {
+    id: 'first-aid-1',
+    name: 'Minor Cuts and Scrapes',
+    description: 'Proper care for small cuts can prevent infection.',
+    imageUrl: 'remedy-minor-cut',
+    steps: [
+      'Wash your hands thoroughly with soap and water.',
+      'Gently clean the wound with cool, clean water to remove any dirt or debris.',
+      'Apply gentle pressure with a clean cloth to stop any bleeding.',
+      'Apply a thin layer of antibiotic ointment (if available).',
+      'Cover the wound with a sterile bandage.',
+    ],
+  },
+  {
+    id: 'first-aid-2',
+    name: 'Minor Burns (First-Degree)',
+    description: 'Quick action can help soothe pain and prevent further damage.',
+    imageUrl: 'remedy-minor-burn',
+    steps: [
+      'Immediately hold the burned area under cool (not cold) running water for about 10-15 minutes.',
+      'Remove any tight jewelry or clothing from the affected area.',
+      'Apply a moisturizer like aloe vera gel to soothe the skin.',
+      'Cover the burn with a sterile, non-fluffy dressing.',
+      'Do not use ice, as it can cause more damage to the skin.',
+    ],
+  },
+  {
+    id: 'first-aid-3',
+    name: 'Insect Bites and Stings',
+    description: 'Relieve itching and swelling from common insect bites.',
+    imageUrl: 'remedy-insect-bite',
+    steps: [
+      'If the stinger is still present, gently scrape it out with a flat-edged object like a credit card.',
+      'Wash the area with soap and water.',
+      'Apply a cold pack or cloth filled with ice to the area for 10-15 minutes to reduce swelling and pain.',
+      'Apply calamine lotion or a paste of baking soda and water to reduce itching.',
+      'Avoid scratching, as it can lead to infection.',
+    ],
+  },
+];
+
 export const medicines: Medicine[] = [
     { id: '1', name: 'Paracetamol 500mg', description: 'A common pain reliever and fever reducer.', price: 20, imageUrl: 'medicine-1', requiresPrescription: false, stock: 150 },
     { id: '2', name: 'Amoxicillin 250mg', description: 'An antibiotic used to treat bacterial infections.', price: 150, imageUrl: 'medicine-2', requiresPrescription: true, stock: 80 },
@@ -145,3 +187,5 @@ export const articles: Article[] = [
     imageUrl: 'article-3',
   },
 ];
+
+    

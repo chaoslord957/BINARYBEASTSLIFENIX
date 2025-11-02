@@ -19,7 +19,7 @@ export type Doctor = {
 };
 
 export type Medicine = {
-  id: string;
+  id:string;
   name: string;
   description: string;
   price: number;
@@ -51,3 +51,13 @@ export type AyurvedicRemedy = {
   imageUrl: string;
   uses: string[];
 };
+
+export type HomeRemedy = {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  steps: string[];
+};
+
+    
