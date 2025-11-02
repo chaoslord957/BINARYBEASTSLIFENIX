@@ -28,12 +28,19 @@ export type Medicine = {
   stock: number;
 };
 
+// This type represents the data structure in Firestore
 export type MedicalDocument = {
   id: string;
-  name: string;
-  type: 'Report' | 'Prescription' | 'Insurance';
-  date: string;
+  userId: string;
+  filename: string;
+  uploadDate: string; // ISO String
+  fileType: string;
+  fileSize: number; // in bytes
+  storageLocation: string; // URL to the file in Firebase Storage
+  aiInsights?: string;
+  ocrContent?: string;
 };
+
 
 export type Article = {
   id: string;
@@ -59,5 +66,3 @@ export type HomeRemedy = {
   imageUrl: string;
   steps: string[];
 };
-
-    
