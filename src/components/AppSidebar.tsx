@@ -6,6 +6,7 @@ import {
   Ambulance,
   FileText,
   HeartPulse,
+  Home,
   LayoutGrid,
   Newspaper,
   Pill,
@@ -91,6 +92,12 @@ const navItems: NavItem[] = [
     title: 'Homeopathy',
     href: '/homeopathy',
     icon: Droplets,
+    group: 'Services',
+  },
+  {
+    title: 'Home Remedies',
+    href: '/home-remedies',
+    icon: Home,
     group: 'Services',
   },
   {

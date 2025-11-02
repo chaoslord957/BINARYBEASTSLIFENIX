@@ -3,6 +3,7 @@ import {
   Ambulance,
   FileText,
   HeartPulse,
+  Home,
   Newspaper,
   Pill,
   Salad,
@@ -73,6 +74,12 @@ const features = [
     href: '/homeopathy',
     icon: Droplets,
     description: 'Find homeopathic solutions.',
+  },
+  {
+    title: 'Home Remedies',
+    href: '/home-remedies',
+    icon: Home,
+    description: 'Find natural home remedies.',
   },
   {
     title: 'Medical Vault',
