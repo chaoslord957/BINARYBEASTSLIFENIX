@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function BookAmbulancePage() {
-  const mapImage = PlaceHolderImages.find((img) => img.id === 'ambulance-map');
+  const mapImage = PlaceHolderImages.find((img) => img.id === 'ambulance-map-india');
 
   return (
     <div className="flex flex-1 flex-col p-4 md:p-6">
@@ -38,7 +38,7 @@ export default function BookAmbulancePage() {
                 <Input
                   id="current-location"
                   placeholder="Enter your current location"
-                  defaultValue="City Hospital, Delhi"
+                  defaultValue="Fortis Hospital, Bengaluru"
                 />
               </div>
               <div className="space-y-2">
@@ -46,7 +46,7 @@ export default function BookAmbulancePage() {
                 <Input
                   id="destination"
                   placeholder="Enter destination"
-                  defaultValue="AIIMS, New Delhi"
+                  defaultValue="Manipal Hospital, Bengaluru"
                 />
               </div>
               <Button size="lg" className="w-full">
@@ -68,21 +68,21 @@ export default function BookAmbulancePage() {
           </Card>
         </div>
         <div className="md:col-span-2">
-          <Card className="h-full min-h-[400px] overflow-hidden">
+          <Card className="relative h-full min-h-[400px] overflow-hidden">
             {mapImage && (
               <Image
                 src={mapImage.imageUrl}
                 alt={mapImage.description}
                 data-ai-hint={mapImage.imageHint}
                 fill
-                className="object-cover opacity-50"
+                className="object-cover"
               />
             )}
-            <div className="absolute inset-0 flex items-center justify-center bg-background/50">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
               <div className="text-center">
-                <MapPin className="mx-auto h-12 w-12 text-primary" />
-                <p className="mt-2 font-semibold text-foreground">
-                  Map View Will Appear Here
+                <MapPin className="mx-auto h-12 w-12 text-white" />
+                <p className="mt-2 font-semibold text-white">
+                  Live Ambulance Tracking Will Appear Here
                 </p>
               </div>
             </div>
