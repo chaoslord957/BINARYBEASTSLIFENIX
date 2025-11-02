@@ -137,7 +137,7 @@ export default function DashboardPage() {
       />
       <div className="relative z-10">
         <PageHeader
-          title="Hello! BinaryBeasts (12345678)"
+          title="Hello!"
           description="Hope to have a healthy and happy life."
         />
         <DashboardCarousel />
