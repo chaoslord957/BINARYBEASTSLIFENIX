@@ -125,43 +125,52 @@ const featureGroups = [
 
 export default function DashboardPage() {
   return (
-    <div className="flex flex-1 flex-col p-4 md:p-6">
-      <PageHeader
-        title="Welcome to LifeNix"
-        description="Your personal health companion. What would you like to do today?"
+    <div
+      className="relative flex flex-1 flex-col p-4 md:p-6"
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-10"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1080&auto=format&fit=crop')",
+        }}
       />
-      <DashboardCarousel />
-      <div className="flex flex-col gap-8">
-        {featureGroups.map((group) => (
-          <section key={group.category}>
-            <div className="mb-4 flex items-center gap-3">
-              <group.icon className="h-6 w-6 text-primary" />
-              <h2 className="font-headline text-2xl font-bold tracking-tight">
-                {group.category}
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {group.features.map((feature) => (
-                <Link href={feature.href} key={feature.title}>
-                  <Card className="flex h-full flex-col justify-between transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-                    <CardHeader>
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <feature.icon className="h-6 w-6" />
-                      </div>
-                      <CardTitle className="font-headline tracking-normal">
-                        {feature.title}
-                      </CardTitle>
-                      <CardDescription>{feature.description}</CardDescription>
-                    </CardHeader>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </section>
-        ))}
+      <div className="relative z-10">
+        <PageHeader
+          title="Welcome to LifeNix"
+          description="Your personal health companion. What would you like to do today?"
+        />
+        <DashboardCarousel />
+        <div className="flex flex-col gap-8">
+          {featureGroups.map((group) => (
+            <section key={group.category}>
+              <div className="mb-4 flex items-center gap-3">
+                <group.icon className="h-6 w-6 text-primary" />
+                <h2 className="font-headline text-2xl font-bold tracking-tight">
+                  {group.category}
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {group.features.map((feature) => (
+                  <Link href={feature.href} key={feature.title}>
+                    <Card className="flex h-full flex-col justify-between transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+                      <CardHeader>
+                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          <feature.icon className="h-6 w-6" />
+                        </div>
+                        <CardTitle className="font-headline tracking-normal">
+                          {feature.title}
+                        </CardTitle>
+                        <CardDescription>{feature.description}</CardDescription>
+                      </CardHeader>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
-
-    
