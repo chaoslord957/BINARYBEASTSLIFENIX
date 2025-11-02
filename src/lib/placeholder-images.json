@@ -37,6 +37,24 @@
       "imageHint": "indian man"
     },
     {
+      "id": "homeopathic-doctor-1",
+      "description": "Avatar for Dr. Alok Nath",
+      "imageUrl": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "male doctor"
+    },
+    {
+      "id": "homeopathic-doctor-2",
+      "description": "Avatar for Dr. Sunita Gupta",
+      "imageUrl": "https://images.unsplash.com/photo-1622253692010-333f2da60710?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "female doctor"
+    },
+    {
+      "id": "homeopathy-origin",
+      "description": "Image representing the origin of homeopathy",
+      "imageUrl": "https://images.unsplash.com/photo-1584308666744-8480404b61ae?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "medical history"
+    },
+    {
       "id": "remedy-ashwagandha",
       "description": "Image of Ashwagandha root and powder",
       "imageUrl": "https://images.unsplash.com/photo-1630615234954-d6a895b6a71e?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
