@@ -16,12 +16,6 @@ import {
 } from '@/components/ui/chart';
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
 import type { ChartConfig } from '@/components/ui/chart';
-import type { Metadata } from 'next';
-
-// Note: Metadata export is fine in a client component for static metadata.
-export const metadata: Metadata = {
-  title: 'Live Health Monitor | LifeNix',
-};
 
 const chartData = [
   { time: '12:00', bpm: 80 },
