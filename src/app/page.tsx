@@ -8,6 +8,7 @@ import {
   Salad,
   Shield,
   Sparkles,
+  Sprout,
   Stethoscope,
 } from 'lucide-react';
 import {
@@ -59,6 +60,12 @@ const features = [
     href: '/diet-plan',
     icon: Salad,
     description: 'AI-generated nutritional plans.',
+  },
+  {
+    title: 'Ayurvedic Remedies',
+    href: '/ayurvedic-remedies',
+    icon: Sprout,
+    description: 'Explore traditional remedies.',
   },
   {
     title: 'Medical Vault',

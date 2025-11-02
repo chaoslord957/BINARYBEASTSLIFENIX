@@ -12,6 +12,7 @@ import {
   Salad,
   Shield,
   Sparkles,
+  Sprout,
   Stethoscope,
 } from 'lucide-react';
 import { AppLogo } from '@/components/AppLogo';
@@ -77,6 +78,12 @@ const navItems: NavItem[] = [
     title: 'Book Ambulance',
     href: '/book-ambulance',
     icon: Ambulance,
+    group: 'Services',
+  },
+  {
+    title: 'Ayurvedic Remedies',
+    href: '/ayurvedic-remedies',
+    icon: Sprout,
     group: 'Services',
   },
   {
