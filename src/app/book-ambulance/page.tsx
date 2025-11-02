@@ -3,19 +3,27 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Ambulance, MapPin } from 'lucide-react';
+import { Ambulance, MapPin,IndianRupee } from 'lucide-react';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Book Ambulance | LifeNix',
 };
+
+const ambulanceTypes = [
+    { name: 'Basic Life Support (BLS)', price: '1500' },
+    { name: 'Advanced Life Support (ALS)', price: '3000' },
+    { name: 'Patient Transport Ambulance', price: '1000' },
+    { name: 'Mortuary Ambulance', price: '2500' },
+]
 
 export default function BookAmbulancePage() {
   const mapImage = PlaceHolderImages.find((img) => img.id === 'ambulance-map-india');
@@ -53,6 +61,27 @@ export default function BookAmbulancePage() {
                 <Ambulance className="mr-2" />
                 Book Now
               </Button>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Ambulance Types &amp; Pricing</CardTitle>
+              <CardDescription>
+                Estimated cost for services within the city. Prices may vary.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                {ambulanceTypes.map((ambulance) => (
+                  <li key={ambulance.name} className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">{ambulance.name}</span>
+                    <span className="flex items-center font-semibold">
+                      <IndianRupee className="mr-1 h-4 w-4" />
+                      {ambulance.price}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </CardContent>
           </Card>
           <Card>
