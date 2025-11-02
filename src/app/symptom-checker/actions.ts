@@ -1,6 +1,6 @@
 'use server';
 
-import { aiSymptomChecker } from '@/ai/ai-sympton-checker';
+import { aiSymptomChecker } from '@/ai/ai-symptom-checker';
 import { z } from 'zod';
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
