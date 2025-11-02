@@ -31,7 +31,6 @@ export type Medicine = {
 // This type represents the data structure in Firestore
 export type MedicalDocument = {
   id: string;
-  userId: string;
   filename: string;
   uploadDate: string; // ISO String
   fileType: string;

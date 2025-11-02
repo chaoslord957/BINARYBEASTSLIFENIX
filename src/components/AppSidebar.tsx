@@ -16,6 +16,7 @@ import {
   Sprout,
   Stethoscope,
   Droplets,
+  ShieldCheck,
 } from 'lucide-react';
 import { AppLogo } from '@/components/AppLogo';
 import {
@@ -85,6 +86,12 @@ const navItems: NavItem[] = [
     href: '/book-ambulance',
     icon: Ambulance,
     group: 'Services',
+  },
+  {
+    title: 'Government Schemes',
+    href: '/schemes',
+    icon: ShieldCheck,
+    group: 'Schemes',
   },
   {
     title: 'Ayurvedic Remedies',
