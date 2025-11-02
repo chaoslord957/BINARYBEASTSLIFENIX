@@ -34,7 +34,7 @@ import {
   Shield,
   Upload,
 } from 'lucide-react';
-import { collection } from 'firebase/firestore';
+import { collection, doc } from 'firebase/firestore';
 import React, { useRef, useState } from 'react';
 import {
   DropdownMenu,
@@ -43,9 +43,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { deleteDocumentNonBlocking } from '@/firebase/non-blocking-updates';
-import { doc } from 'firebase/firestore';
 
 interface MedicalDocument {
+  id: string; // Added from WithId<T>
   filename: string;
   fileType: string;
   fileSize: number;
@@ -80,7 +80,7 @@ export default function MedicalVaultPage() {
       // For this demo, we'll just add a record to Firestore.
       console.log('Uploading file:', file.name);
 
-      const newDoc: Omit<MedicalDocument, 'id'> & { userId: string } = {
+      const newDoc = {
         userId: user.uid,
         filename: file.name,
         fileType: file.type,
@@ -129,7 +129,7 @@ export default function MedicalVaultPage() {
           </CardContent>
           <CardFooter className="justify-center">
             <Button
-              onClick={() => initiateAnonymousSignIn(firestore.app.options.auth!)}
+              onClick={() => initiateAnonymousSignIn(useAuth())}
             >
               <LogIn className="mr-2" />
               Sign In Anonymously
