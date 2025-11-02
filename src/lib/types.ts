@@ -43,3 +43,11 @@ export type Article = {
   date: string;
   imageUrl: string;
 };
+
+export type AyurvedicRemedy = {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  uses: string[];
+};

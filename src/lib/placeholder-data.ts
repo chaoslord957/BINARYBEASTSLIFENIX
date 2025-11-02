@@ -1,4 +1,4 @@
-import type { Doctor, Article, MedicalDocument, Medicine } from './types';
+import type { Doctor, Article, MedicalDocument, Medicine, AyurvedicRemedy } from './types';
 
 export const doctors: Doctor[] = [
   {
@@ -38,6 +38,51 @@ export const doctors: Doctor[] = [
     reviews: 76,
   },
 ];
+
+export const ayurvedicDoctors: Doctor[] = [
+    {
+      id: 'ayur-1',
+      name: 'Vaidya. Anika Joshi',
+      specialty: 'Ayurvedic Practitioner (B.A.M.S)',
+      avatar: 'ayurvedic-doctor-1',
+      online: true,
+      rating: 4.9,
+      reviews: 89,
+    },
+    {
+      id: 'ayur-2',
+      name: 'Vaidya. Rishi Mehra',
+      specialty: 'Panchakarma Specialist',
+      avatar: 'ayurvedic-doctor-2',
+      online: false,
+      rating: 4.8,
+      reviews: 72,
+    },
+];
+
+export const ayurvedicRemedies: AyurvedicRemedy[] = [
+    {
+        id: 'remedy-1',
+        name: 'Ashwagandha',
+        description: 'An adaptogenic herb known for its ability to reduce stress and anxiety.',
+        imageUrl: 'remedy-ashwagandha',
+        uses: ['Reduces cortisol levels', 'Boosts brain function', 'Fights symptoms of anxiety and depression'],
+    },
+    {
+        id: 'remedy-2',
+        name: 'Turmeric (Haldi)',
+        description: 'A powerful anti-inflammatory and antioxidant spice, commonly used in Indian cuisine.',
+        imageUrl: 'remedy-turmeric',
+        uses: ['Reduces inflammation', 'Improves heart health', 'May help prevent cancer'],
+    },
+    {
+        id: 'remedy-3',
+        name: 'Triphala',
+        description: 'A polyherbal medicine consisting of amla, bibhitaki, and haritaki.',
+        imageUrl: 'remedy-triphala',
+        uses: ['Improves digestion', 'Acts as a natural laxative', 'Supports healthy weight management'],
+    }
+]
 
 export const medicines: Medicine[] = [
     { id: '1', name: 'Paracetamol 500mg', description: 'A common pain reliever and fever reducer.', price: 20, imageUrl: 'medicine-1', requiresPrescription: false, stock: 150 },
