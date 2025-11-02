@@ -129,7 +129,7 @@ export default function DashboardPage() {
       className="relative flex flex-1 flex-col p-4 md:p-6"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-10"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.15]"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1080&auto=format&fit=crop')",
@@ -137,8 +137,8 @@ export default function DashboardPage() {
       />
       <div className="relative z-10">
         <PageHeader
-          title="Welcome to LifeNix"
-          description="Your personal health companion. What would you like to do today?"
+          title="Hello BinaryBeasts,"
+          description="Hope to have a healthy and happy life."
         />
         <DashboardCarousel />
         <div className="flex flex-col gap-8">
